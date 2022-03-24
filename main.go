@@ -25,9 +25,10 @@ func main() {
 
 	// Routes
 	r.GET("/reports", controllers.FindReports)
+	r.GET("/reports/:id", controllers.FindReport)
 	r.POST("/reports", controllers.CreateReport)
-	r.PATCH("/reports", controllers.UpdateReport)
-	r.DELETE("/reports", controllers.DeleteReport)
+	r.PATCH("/reports/:id", controllers.UpdateReport)
+	r.DELETE("/reports/:id", controllers.DeleteReport)
 
 	// Run the server
 	r.Run()
