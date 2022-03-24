@@ -117,11 +117,8 @@ func CreateReport(c *gin.Context) {
 
 	patient, _ := FindPatientById(input.PatientId)
 
-	hospitals := make([]Hospital, 1)
-	hospitals[0], _ = FindHospitalById(input.HospitalId)
-
 	// Create report
-	report := Reports{Doctor: doctor, Patient: patient, Hospital: hospitals, Date: time.Now(), ReportFiles: input.ReportFiles}
+	report := Reports{Doctor: doctor, Patient: patient, Hospital: nil, Date: time.Now(), ReportFiles: input.ReportFiles}
 	models.DB.Create(&report)
 
 	c.JSON(http.StatusOK, gin.H{"data": report})
