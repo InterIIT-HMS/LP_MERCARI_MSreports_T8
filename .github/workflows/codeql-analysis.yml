@@ -31,7 +31,8 @@ jobs:
         uses: github/codeql-action/init@v1
 
       - run: |
-          go build src/
+          cd src
+          go build
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v1
